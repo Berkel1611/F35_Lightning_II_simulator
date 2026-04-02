@@ -203,54 +203,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &259313553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 259313554}
-  - component: {fileID: 259313555}
-  m_Layer: 0
-  m_Name: Aero_Wing_Left
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &259313554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259313553}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.5, y: 0.3, z: -9.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &259313555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259313553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 30591095412aadd41ac755354a3af9ab, type: 2}
-  IsControlSurface: 1
-  InputType: 2
-  InputMultiplyer: -1
 --- !u!1 &358446033
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,54 +296,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.451}
---- !u!1 &495953656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 495953657}
-  - component: {fileID: 495953658}
-  m_Layer: 0
-  m_Name: Aero_Wing_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &495953657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495953656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.006170608, y: -0.7070799, z: 0.006170608, w: 0.7070799}
-  m_LocalPosition: {x: 3.5, y: 0.3, z: -9.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: 1, y: -90, z: 0}
---- !u!114 &495953658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495953656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 30591095412aadd41ac755354a3af9ab, type: 2}
-  IsControlSurface: 1
-  InputType: 2
-  InputMultiplyer: 1
 --- !u!1 &592151078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1154401942301664971, guid: 965d121eb93a6d94e90d1db19516c438, type: 3}
@@ -608,9 +512,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 965d121eb93a6d94e90d1db19516c438, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1478157876}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 965d121eb93a6d94e90d1db19516c438, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1599403683}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965d121eb93a6d94e90d1db19516c438, type: 3}
       insertIndex: -1
@@ -711,54 +612,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.5514662, y: 3.6005192, z: 0.2987029}
   m_Center: {x: 0.14917432, y: -1.0178591, z: -0.08397448}
---- !u!1 &674712523
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 674712524}
-  - component: {fileID: 674712525}
-  m_Layer: 0
-  m_Name: Aero_Rudder_Left
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &674712524
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674712523}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.488148, y: -0.6411939, z: -0.33510214, w: 0.488148}
-  m_LocalPosition: {x: -2, y: 1.5, z: -13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: -65, y: -135, z: 45}
---- !u!114 &674712525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674712523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 9c6d0c6861e49b444a94191a828ce42c, type: 2}
-  IsControlSurface: 1
-  InputType: 1
-  InputMultiplyer: 1
 --- !u!1 &675056947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2253330163542151034, guid: 965d121eb93a6d94e90d1db19516c438, type: 3}
@@ -853,14 +706,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 191000
   aerodynamicSurfaces:
-  - {fileID: 259313555}
-  - {fileID: 495953658}
-  - {fileID: 1436603260}
-  - {fileID: 1408262167}
-  - {fileID: 674712525}
-  - {fileID: 2141648960}
-  - {fileID: 1449788299}
-  - {fileID: 1037257648}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &795064502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,12 +727,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlSurfaces:
-  - {fileID: 259313555}
-  - {fileID: 495953658}
-  - {fileID: 1436603260}
-  - {fileID: 1408262167}
-  - {fileID: 674712525}
-  - {fileID: 2141648960}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rollControlSensitivity: 0.2
   pitchControlSensitivity: 0.2
   yawControlSensitivity: 0.2
@@ -1080,54 +933,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &1037257647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1037257649}
-  - component: {fileID: 1037257648}
-  m_Layer: 0
-  m_Name: Aero_Body_V
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1037257648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037257647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: e0fb3c4a0dc339142bf405f317d657b8, type: 2}
-  IsControlSurface: 0
-  InputType: 0
-  InputMultiplyer: 1
---- !u!4 &1037257649
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037257647}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0.2, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!1 &1039422499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5419043543489767976, guid: 965d121eb93a6d94e90d1db19516c438, type: 3}
@@ -1185,150 +990,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0739568, y: 1.4162867, z: 2.5608118}
   m_Center: {x: 0.013027195, y: -0.43835068, z: -0.2761763}
---- !u!1 &1408262165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1408262166}
-  - component: {fileID: 1408262167}
-  m_Layer: 0
-  m_Name: Aero_Elevator_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1408262166
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408262165}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.033898644, y: -0.7764063, z: -0.027450584, w: 0.62872154}
-  m_LocalPosition: {x: 2.2, y: 0.2, z: -13.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: 0, y: -102, z: -5}
---- !u!114 &1408262167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408262165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 2a2a925a91e548141b6a40a4e98d2a2a, type: 2}
-  IsControlSurface: 1
-  InputType: 0
-  InputMultiplyer: 1
---- !u!1 &1436603258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1436603259}
-  - component: {fileID: 1436603260}
-  m_Layer: 0
-  m_Name: Aero_Elevator_Left
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1436603259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436603258}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.027450584, y: -0.62872154, z: -0.033898644, w: 0.7764063}
-  m_LocalPosition: {x: -2.2, y: 0.2, z: -13.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: 0, y: -78, z: -5}
---- !u!114 &1436603260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436603258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 2a2a925a91e548141b6a40a4e98d2a2a, type: 2}
-  IsControlSurface: 1
-  InputType: 0
-  InputMultiplyer: 1
---- !u!1 &1449788297
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1449788298}
-  - component: {fileID: 1449788299}
-  m_Layer: 0
-  m_Name: Aero_Body_H
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1449788298
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449788297}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &1449788299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449788297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: da22a5be37af83d45b64820aa7e345d7, type: 2}
-  IsControlSurface: 0
-  InputType: 0
-  InputMultiplyer: 1
 --- !u!1 &1478157868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,45 +1162,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07714795, y: 1.2311368, z: 2.7696888}
   m_Center: {x: -0.010213362, y: -0.34617755, z: -0.44980276}
---- !u!1 &1599403682
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1599403683}
-  m_Layer: 0
-  m_Name: Aerodynamics
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1599403683
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599403682}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 259313554}
-  - {fileID: 495953657}
-  - {fileID: 1436603259}
-  - {fileID: 1408262166}
-  - {fileID: 674712524}
-  - {fileID: 2141648959}
-  - {fileID: 1449788298}
-  - {fileID: 1037257649}
-  m_Father: {fileID: 795064500}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647648561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,54 +1393,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.3403506, y: 3.487341, z: 0.298703}
   m_Center: {x: -0.06522498, y: -1.1331033, z: -0.08397254}
---- !u!1 &2141648958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2141648959}
-  - component: {fileID: 2141648960}
-  m_Layer: 0
-  m_Name: Aero_Rudder_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2141648959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141648958}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.6864084, y: -0.45345375, z: -0.46941948, w: 0.32073137}
-  m_LocalPosition: {x: 2, y: 1.5, z: -13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599403683}
-  m_LocalEulerAnglesHint: {x: -60, y: -225, z: 140}
---- !u!114 &2141648960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141648958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d9f2b5452a1c24db749e1efdea6274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 9c6d0c6861e49b444a94191a828ce42c, type: 2}
-  IsControlSurface: 1
-  InputType: 1
-  InputMultiplyer: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

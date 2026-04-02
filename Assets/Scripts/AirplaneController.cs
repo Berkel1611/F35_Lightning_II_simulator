@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class AirplaneController : MonoBehaviour
 {
-    [SerializeField]
-    List<AeroSurface> controlSurfaces = null;
     //[SerializeField]
     //List<WheelCollider> wheels = null;
     [SerializeField]
@@ -30,7 +28,6 @@ public class AirplaneController : MonoBehaviour
     float thrustPercent;
     float brakesTorque;
 
-    AircraftPhysics aircraftPhysics;
     Rigidbody rb;
 
     [Header("Control Surfaces (Visual Transforms)")]
@@ -69,7 +66,6 @@ public class AirplaneController : MonoBehaviour
 
     private void Start()
     {
-        aircraftPhysics = GetComponent<AircraftPhysics>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
@@ -113,53 +109,12 @@ public class AirplaneController : MonoBehaviour
 
         // Podwozie
         HandleLandingGear();
-
-        if (Time.frameCount % 30 == 0)
-        {
-            Vector3 v = rb.linearVelocity;
-            Debug.Log($"Speed: {v.magnitude:F1} m/s | " +
-                      $"Thrust: {aircraftPhysics.thrust:F0} N | " +
-                      $"Alt: {transform.position.y:F1} m | " +
-                      $"Pitch: {Pitch:F2} Roll: {Roll:F2}");
-        }
     }
 
     private void FixedUpdate()
     {
-        SetControlSurfecesAngles(Pitch, Roll, Yaw, Flap);
-        aircraftPhysics.SetThrustPercent(thrustPercent);
-        //foreach (var wheel in wheels)
-        //{
-        //    wheel.brakeTorque = brakesTorque;
-        //    // small torque to wake up wheel collider
-        //    wheel.motorTorque = 0.01f;
-        //}
-
         // Animacje wizualne
         AnimateControlSurfaces(Pitch, Roll, Yaw);
-    }
-
-    public void SetControlSurfecesAngles(float pitch, float roll, float yaw, float flap)
-    {
-        foreach (var surface in controlSurfaces)
-        {
-            if (surface == null || !surface.IsControlSurface) continue;
-            switch (surface.InputType)
-            {
-                case ControlInputType.Pitch:
-                    surface.SetFlapAngle(pitch * pitchControlSensitivity * surface.InputMultiplyer);
-                    break;
-                case ControlInputType.Roll:
-                    surface.SetFlapAngle(roll * rollControlSensitivity * surface.InputMultiplyer);
-                    break;
-                case ControlInputType.Yaw:
-                    surface.SetFlapAngle(yaw * yawControlSensitivity * surface.InputMultiplyer);
-                    break;
-                case ControlInputType.Flap:
-                    surface.SetFlapAngle(Flap * surface.InputMultiplyer);
-                    break;
-            }
-        }
     }
 
     private void AnimateControlSurfaces(float pitch, float roll, float yaw)
@@ -221,7 +176,5 @@ public class AirplaneController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!Application.isPlaying)
-            SetControlSurfecesAngles(Pitch, Roll, Yaw, Flap);
     }
 }
