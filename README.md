@@ -2,8 +2,9 @@
 
 A flight simulator for the Lockheed Martin F-35A Lightning II, built in Unity as my Bachelor's thesis project.
 
+![F-35 external view](screenshots/02-external-view.png)
+
 🎥 **Demo video:** _coming soon_
-📸 **Screenshots:** _coming soon_
 
 ---
 
@@ -27,6 +28,17 @@ Precise aerodynamic data for the F-35 is classified, so the flight model is not 
   - **Free Flight** - no mission objectives
 - **Keyboard & mouse controls**
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Main menu](screenshots/01-main-menu.png) | ![HUD](screenshots/03-hud.png) |
+| Main menu | HUD in free flight |
+| ![Target lock](screenshots/04-hud-targeting.png) | ![PCD display](screenshots/05-pcd-display.png) |
+| Locking onto a target | PCD (cockpit display) |
+| ![Tutorial](screenshots/06-tutorial.png) | ![Weapons loadout](screenshots/07-weapons-loadout.png) |
+| Tutorial mode | Weapons loadout |
+
 ## Tech Stack
 
 - **Engine:** Unity 6 (6000.0.50f1 LTS), HDRP
@@ -40,13 +52,17 @@ Precise aerodynamic data for the F-35 is classified, so the flight model is not 
 The F-35's real aerodynamic data is military-classified. As a base, I used [vazgriz's C# port](https://github.com/vazgriz/FlightSim_F16) (MIT licensed) of the F-16 flight model from Stevens, Lewis & Johnson's *Aircraft Control and Simulation* - one of the few publicly available, implementation-ready 6-DOF datasets for a real military aircraft. My own work here was scaling the model to F-35A specifications (wing geometry, mass, inertia tensor) and retuning the FCS's PID controllers, since the gains that kept the aircraft stable at low speed became unstable at high speed and vice versa - solved by scaling the controller gains as a function of airspeed rather than using fixed coefficients.
 
 **2. Diagnosing and fixing a severe performance bottleneck.**
-Profiling (Unity Profiler, Deep Profile) showed the bottleneck was HDRP rendering - frame prep, culling, and render graph construction - not physics or game logic. I fixed it one change at a time, re-measuring after each:
-- The cockpit's secondary display (PCD) camera was inheriting the main camera's full HDRP feature set for a static, single-layer view — enabling *Custom Frame Settings* and disabling unneeded features cut its render cost from 28.1 ms to 12.3 ms.
+The simulator initially ran at ~6 FPS in the heaviest combat scenario. Profiling (Unity Profiler, Deep Profile) showed the bottleneck was HDRP rendering - frame prep, culling, and render graph construction - not physics or game logic. I fixed it one change at a time, re-measuring after each:
+- The cockpit's secondary display (PCD) camera was inheriting the main camera's full HDRP feature set for a static, single-layer view - enabling *Custom Frame Settings* and disabling unneeded features cut its render cost from 28.1 ms to 12.3 ms.
 - The sky was recalculating every frame despite being fully static; switching its update mode from *Realtime* to *On Changed* saved ~3.7 ms.
 - HUD elements (compass, altitude/airspeed tapes) were re-reading `transform.rect` and `gameObject` through properties on every tick, every frame; caching them saved over half the HUD's update cost (6.9 ms → 3.3 ms).
 - The camera's far clip plane was set far beyond what any mission scenario needed, forcing HDRP to cull across a much larger frustum than necessary; reducing it cut culling cost from 12.5 ms to 4.1 ms.
 
 Combined, these changes took the simulator from ~6 FPS to ~18 FPS (Editor, Deep Profile on) and ~27 FPS in a Standalone Development Build - several times more playable on the same hardware, with no visible change in quality.
+
+## Limitations
+
+- Not intended as a professional-fidelity training simulator - aerodynamic data is approximated from F-16 data, not the real (classified) F-35A dataset.
 
 ## Getting Started
 
@@ -71,5 +87,5 @@ git clone https://github.com/<your-username>/f35-lightning-simulator.git
 
 ## Acknowledgements
 
-- Flight physics methodology: Stevens, B. L., Lewis, F. L., & Johnson, E. N. — *Aircraft Control and Simulation: Dynamics, Controls Design and Autonomous Systems*.
+- Flight physics methodology: Stevens, B. L., Lewis, F. L., & Johnson, E. N. - *Aircraft Control and Simulation: Dynamics, Controls Design and Autonomous Systems*.
 - F-16 flight model C# implementation (base for `Flight/Core` and `Flight/FCS`, MIT License): [vazgriz/FlightSim_F16](https://github.com/vazgriz/FlightSim_F16)
