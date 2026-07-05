@@ -30,11 +30,11 @@ Precise aerodynamic data for the F-35 is classified, so the flight model is not 
 
 | | |
 |---|---|
-| ![Main menu](screenshots/main-menu.png) | ![HUD](screenshots/hud.png) |
+| ![Main menu](screenshots/main_menu.png) | ![HUD](screenshots/hud.png) |
 | Main menu | HUD in free flight |
-| ![Target lock](screenshots/hud-targeting.png) | ![PCD display](screenshots/pcd-display.png) |
+| ![Target lock](screenshots/hud_weapons.png) | ![PCD display](screenshots/pcd.png) |
 | Locking onto a target | PCD (cockpit display) |
-| ![Tutorial](screenshots/tutorial.png) | ![Weapons loadout](screenshots/weapons-loadout.png) |
+| ![Tutorial](screenshots/tutorial.png) | ![Weapons loadout](screenshots/weapons_loadout.png) |
 | Tutorial mode | Weapons loadout |
 
 ## Tech Stack
