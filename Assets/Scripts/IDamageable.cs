@@ -1,0 +1,8 @@
+using UnityEngine;
+
+public interface IDamageable
+{
+    bool IsAlive { get; }
+
+    void ApplyDamage(float damage);
+}
