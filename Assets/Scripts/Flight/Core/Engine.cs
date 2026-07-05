@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Engine
@@ -63,6 +61,8 @@ public class Engine
 
     public Engine()
     {
+        const float thrustScale = 2.15f;
+
         idlePowerTable = new float[6, 6] {
             {  1060.0f,   670.0f,   880.0f, 1140.0f, 1500.0f, 1860.0f },
             {   635.0f,   425.0f,   690.0f, 1010.0f, 1330.0f, 1700.0f },
@@ -89,6 +89,16 @@ public class Engine
             { 26070.0f, 21075.0f, 15975.0f, 11115.0f, 6860.0f, 3950.0f },
             { 28886.0f, 23319.0f, 18300.0f, 13484.0f, 8642.0f, 5057.0f },
         };
+
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                idlePowerTable[i, j] *= thrustScale;
+                militaryPowerTable[i, j] *= thrustScale;
+                maxPowerTable[i, j] *= thrustScale;
+            }
+        }
     }
 
     public void Update(float dt)

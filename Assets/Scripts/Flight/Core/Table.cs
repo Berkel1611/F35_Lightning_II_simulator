@@ -47,7 +47,7 @@ public class Table
         float scaled = value * scale;
         int K0 = Math.Clamp((int)scaled, min, max);
         float T = scaled - K0;
-        int K1 = K0 + (int)Math.Sign(T);
+        int K1 = Math.Clamp(K0 + (int)Math.Sign(T), min, max);
 
         return (K0, K1, T);
     }

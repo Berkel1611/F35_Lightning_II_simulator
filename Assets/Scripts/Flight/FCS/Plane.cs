@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plane : MonoBehaviour
+public class Plane : MonoBehaviour, IDamageable
 {
     public const float poundsForceToNewtons = 4.44822f;
     public const float metersToFeet = 3.28084f;
@@ -12,14 +11,14 @@ public class Plane : MonoBehaviour
     public const float slugToKilo = 14.5939f;
     public const float footSquareToMeterSquare = 0.092903f;
 
+    static readonly Vector4 inertiaTensor = new Vector4(14092f, 80433f, 107627f, 1399f);
+
     [SerializeField]
     float maxHealth;
     [SerializeField]
     float health;
     [SerializeField]
     float throttleSpeed;
-    [SerializeField]
-    Vector4 inertiaTensor;
     [SerializeField]
     float centerOfGravityPosition;
 
@@ -105,15 +104,13 @@ public class Plane : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField]
-    List<Collider> landingGear;
-    [SerializeField]
-    PhysicsMaterial landingGearBrakesMaterial;
-    [SerializeField]
     List<GameObject> graphics;
     [SerializeField]
     GameObject damageEffect;
     [SerializeField]
     GameObject deathEffect;
+    [SerializeField]
+    GameObject fireEffect;
     [SerializeField]
     float initialSpeed;
 
@@ -121,7 +118,6 @@ public class Plane : MonoBehaviour
     Vector3 controlInput;
 
     Vector3 lastVelocity;
-    PhysicsMaterial landingGearDefaultMaterial;
     Vector3 lastAngularAcceleration;
 
     AirData airData;
@@ -198,11 +194,11 @@ public class Plane : MonoBehaviour
             health = Mathf.Clamp(value, 0, maxHealth);
             if (health <= MaxHealth * .5f && health > 0)
             {
-                //damageEffect.SetActive(true);
+                damageEffect.SetActive(true);
             }
             else
             {
-                //damageEffect.SetActive(false);
+                damageEffect.SetActive(false);
             }
 
             if (health == 0 && MaxHealth != 0 && !Dead)
@@ -213,6 +209,8 @@ public class Plane : MonoBehaviour
     }
 
     public bool Dead { get; private set; }
+
+    public bool IsAlive => !Dead;
 
     public Rigidbody Rigidbody { get; private set; }
     public float Throttle { get; private set; }
@@ -240,14 +238,9 @@ public class Plane : MonoBehaviour
 
     public float AltitudeFeet { get; private set; }
 
-    void Start()
+    void Awake()
     {
         Rigidbody = GetComponent<Rigidbody>();
-
-        if (landingGear.Count > 0)
-        {
-            landingGearDefaultMaterial = landingGear[0].sharedMaterial;
-        }
 
         Rigidbody.linearVelocity = Rigidbody.rotation * new Vector3(0, 0, initialSpeed);
 
@@ -291,8 +284,9 @@ public class Plane : MonoBehaviour
         Throttle = 0;
         Dead = true;
 
-        //damageEffect.GetComponent<ParticleSystem>().Pause();
+        damageEffect.GetComponent<ParticleSystem>().Pause();
         deathEffect.SetActive(true);
+        fireEffect.SetActive(true);
     }
 
     void UpdateThrottle(float dt)
@@ -303,21 +297,6 @@ public class Plane : MonoBehaviour
         Throttle = Utilities.MoveTo(Throttle, target, throttleSpeed * Mathf.Abs(throttleInput), dt);
 
         AirbrakeDeployed = Throttle == 0 && throttleInput == -1;
-
-        if (AirbrakeDeployed)
-        {
-            foreach (var lg in landingGear)
-            {
-                lg.sharedMaterial = landingGearBrakesMaterial;
-            }
-        }
-        else
-        {
-            foreach (var lg in landingGear)
-            {
-                lg.sharedMaterial = landingGearDefaultMaterial;
-            }
-        }
     }
 
     void CalculateAngleOfAttack()
@@ -468,7 +447,7 @@ public class Plane : MonoBehaviour
 
         float aoaPitchMult = CalculateAOALimiter(predictedAlpha);
         float gLimit = gLimitPitch;
-        if (controlInput.x > 0)
+        if (controlInput.x < 0)
         {
             gLimit = this.gLimit;
         }
@@ -570,27 +549,18 @@ public class Plane : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        for (int i = 0; i < collision.contactCount; i++)
-        {
-            var contact = collision.contacts[i];
-
-            if (landingGear.Contains(contact.thisCollider))
-            {
-                return;
-            }
-
-            Health = 0;
-
-            Rigidbody.isKinematic = true;
-            Rigidbody.position = contact.point;
-            Rigidbody.rotation = Quaternion.Euler(0, Rigidbody.rotation.eulerAngles.y, 0);
-
-            foreach (var go in graphics)
-            {
-                go.SetActive(false);
-            }
-
+        if (Dead) 
             return;
+        if (collision.gameObject.CompareTag("Bullet")) 
+            return;
+        if (collision.relativeVelocity.magnitude < 5f) 
+            return;
+
+        Health = 0;
+
+        foreach (var g in graphics)
+        {
+            g.SetActive(false);
         }
     }
 }

@@ -35,9 +35,9 @@ public struct AerodynamicForces
 
 public class Aerodynamics
 {
-    const float wingAreaFtSquared = 300;
-    const float wingSpanFt = 30;
-    const float CBAR = 11.32f;
+    const float wingAreaFtSquared = 460;
+    const float wingSpanFt = 35;
+    const float CBAR = 13.1f;
     const float XCGR = 0.35f;
     const float HX = 160;
 
