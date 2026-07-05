@@ -1,15 +1,49 @@
+# ---- Unity generated ----
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-UserSettings/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
 
+# Visual Studio / Rider / VS Code cache
+.vs/
+.vscode/
+.idea/
 *.csproj
 *.unityproj
 *.sln
+*.suo
+*.tmp
 *.user
 *.userprefs
-.vs/
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
 .vsconfig
+
+# Unity crash logs
+sysinfo.txt
+*.stackdump
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Asset meta backups
+*.tmp
+
+# ---- Third-party Asset Store packages ----
+# Not redistributable under the Standard Unity Asset Store EULA.
+# See README "Getting Started" for where to get these.
+Assets/ThirdParty/
+Assets/ThirdParty.meta
